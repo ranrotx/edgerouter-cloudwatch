@@ -27,6 +27,28 @@ CloudWatch alarm for whenever the metric goes into INSUFFICENT_DATA to detect wh
 
 The scheduled task should start to run. You can go to your CloudWatch console and watch the metrics appear. From here, you can set an alarm to notify you whenever the data point goes below 1 for a period of time.
 
+## Sample IAM policy
+
+The below policy can be used to create a user that only has access to publish metrics to CloudWatch.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1490476022000",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutMetricData"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
 ## TODO
 
 - Add inputs:
